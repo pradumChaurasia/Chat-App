@@ -29,8 +29,11 @@ const port=process.env.PORT || 3001
 const publicDirectoryPath=path.join(__dirname,'../public')//serve up th epublic directory
 
 //use expressStatic midddleware to serve up the where would we in this directory
-app.use(express.static(publicDirectoryPath))
+app.use(express.static(publicDirectoryPath)) 
 
+
+// io/socket.brodocast.emit() is used to emit an event to all the available client expect the current client
+//  
 
 // let count=0 
 
@@ -120,6 +123,11 @@ io.on('connection',(socket)=>{
 
     // socket.on('increment',()=>{ 
     //     count++
+        // when we use socket.emit we are emitting the event to a particular connection
+        // and in this econtext we dont want to emit to a singluar
+        // connection ,instead we  want all the client gets the info.(means every conection that is acailable)
+        //so we use io.emit() that is going to emit an emit to  every avaliable connection
+        // 
     //     // socket.emit('countUpdated',count)
     //     io.emit('countUpdated',count)
     // })

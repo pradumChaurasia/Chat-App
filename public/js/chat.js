@@ -62,7 +62,7 @@ const socket=io()
 // }) 
 
   
-//to listen for the msg   
+//to listen for the msg   from the server
 socket.on('message',(message)=>{
     console.log(message)
 
@@ -119,6 +119,9 @@ $messageForm.addEventListener('submit',(e)=>{
     })//this is emitted from the client and recieve by the server
 
 }) 
+
+// event acknowledgemnet is the acknowledgement that a client getting notified that the event is getting processed 
+// and it is provided as a last argument in the code
 
 $sendLocationButton.addEventListener('click',()=>{
     if (!navigator.geolocation){
