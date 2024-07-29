@@ -1,6 +1,7 @@
 const path=require('path') //node module
 const http=require('http');
 const express=require('express')
+const dotenv = require('dotenv');
 //load the socket.io library
 const socketio=require('socket.io');
 
@@ -9,7 +10,7 @@ const {addUser,removeUser,getUser,getUsersInRoom} = require('./utils/user')
 const Filter = require('bad-words')
 
 
-
+dotenv.config();
 
 const app = express()
 
